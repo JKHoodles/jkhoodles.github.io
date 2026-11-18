@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CineManiac FFmpeg Source</title>
+<meta name="description" content="Source code and build instructions for the FFmpeg libraries used in CineManiac, under the GNU LGPL v2.1.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <img src="/cinemaniac/icon.png" alt="">
+    <div>
+      <div class="title">CineManiac</div>
+      <div class="subtitle">by JKHoodles Pty Ltd</div>
+    </div>
+  </header>
+
+  <h1>FFmpeg Source Code</h1>
+  <p class="meta">For CineManiac 1.0 · FFmpeg 9.0.2</p>
+
+  <p class="summary">CineManiac uses the FFmpeg libraries libavutil, libswresample, libswscale, libavcodec and libavformat, version 9.0.2, under the <a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">GNU Lesser General Public License version 2.1</a> or later. No GPL, nonfree or version-3 components are enabled, and the FFmpeg source is unmodified.</p>
+
+  <h2>Download</h2>
+  <p><a href="cinemaniac-ffmpeg-9.0.2-source.tar.gz">cinemaniac-ffmpeg-9.0.2-source.tar.gz</a> (12 MB)<br>
+  SHA-256: <code>2f07c911f9ef3909864fa5f7915887005ba0f822ba30d676766c4fa7c731a3e3</code></p>
+  <p>It contains:</p>
+  <ul>
+    <li><code>ffmpeg-9.0.2.tar.xz</code>: the unmodified upstream source, as published at <a href="https://ffmpeg.org/releases/">ffmpeg.org/releases</a> (SHA-256 <code>8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e</code>).</li>
+    <li><code>build-ffmpeg.sh</code>: the exact script that configures and builds the libraries.</li>
+    <li><code>FFMPEG_BUILD_INFO.md</code>: the configure flags and the toolchain used for the shipped build.</li>
+    <li><code>COPYING.LGPLv2.1</code>: the licence.</li>
+    <li><code>README.md</code>: how to rebuild the libraries and replace them.</li>
+  </ul>
+
+  <h2>Rebuilding and replacing the libraries</h2>
+  <p>On a Mac with Xcode, put <code>build-ffmpeg.sh</code> in a <code>Scripts/</code> folder and the FFmpeg tarball in <code>Vendor/FFmpeg/src/</code> next to it, then run <code>Scripts/build-ffmpeg.sh</code>. It produces one dynamic <code>.xcframework</code> per library.</p>
+  <p>The libraries ship as separate dynamic frameworks inside <code>CineManiac.app/Frameworks/</code>, loaded at run time. A modified build with the same public interface can replace them there; the app must then be re-signed to install it on a device, as for any iOS app.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this source: email <a href="mailto:andy.kim.jkhoodles@gmail.com?subject=CineManiac%20FFmpeg%20source">andy.kim.jkhoodles@gmail.com</a>.</p>
+  <p class="meta">FFmpeg is a trademark of Fabrice Bellard, originator of the FFmpeg project.</p>
+
+  <footer>
+    <a href="/cinemaniac/">Support</a>
+    <a href="/cinemaniac/privacy/">Privacy Policy</a>
+    <span>© 2026 JKHoodles Pty Ltd</span>
+  </footer>
+</main>
+</body>
+</html>
