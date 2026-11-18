@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CineManiac libsmb2 Source</title>
+<meta name="description" content="Source code and build instructions for the libsmb2 library used in CineManiac, under the GNU LGPL v2.1.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <img src="/cinemaniac/icon.png" alt="">
+    <div>
+      <div class="title">CineManiac</div>
+      <div class="subtitle">by JKHoodles Pty Ltd</div>
+    </div>
+  </header>
+
+  <h1>libsmb2 Source Code</h1>
+  <p class="meta">For CineManiac 1.0 · libsmb2 6.3</p>
+
+  <p class="summary">CineManiac uses libsmb2 by Ronnie Sahlberg, version 6.3, to play videos from SMB file sharing (Mac, Windows and NAS shared folders). The library is licensed under the <a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">GNU Lesser General Public License version 2.1</a> or later, and its DCE/RPC parts under the BSD 2-Clause licence. The libsmb2 source is unmodified.</p>
+
+  <h2>Download</h2>
+  <p><a href="cinemaniac-libsmb2-6.3-source.tar.gz">cinemaniac-libsmb2-6.3-source.tar.gz</a> (273 KB)<br>
+  SHA-256: <code>c7366faabb77c62b10f6d7fa09eb0458b4dae444936435250f2e4cbcfcfdddca</code></p>
+  <p>It contains:</p>
+  <ul>
+    <li><code>libsmb2-6.3.tar.gz</code>: the unmodified upstream source, as published at <a href="https://github.com/sahlberg/libsmb2">github.com/sahlberg/libsmb2</a> (SHA-256 <code>5011003fd091513f897e1ebbb8e1a40af634386df7199716348b7f77569a2790</code>).</li>
+    <li><code>build-libsmb2.sh</code>: the exact script that compiles and packages the library. Kerberos support is left out, and the public headers' include paths are rewritten for framework packaging.</li>
+    <li><code>LIBSMB2_BUILD_INFO.md</code>: the version and toolchain used for the shipped build.</li>
+    <li><code>LICENCE-LGPL-2.1.txt</code> and <code>COPYING</code>: the licences, and which parts each covers.</li>
+    <li><code>README.md</code>: how to rebuild the library and replace it.</li>
+  </ul>
+
+  <h2>Rebuilding and replacing the library</h2>
+  <p>On a Mac with Xcode, put <code>build-libsmb2.sh</code> in a <code>Scripts/</code> folder and the libsmb2 tarball in <code>Vendor/libsmb2/src/</code> next to it, then run <code>Scripts/build-libsmb2.sh</code>. It produces <code>libsmb2.xcframework</code>.</p>
+  <p>The library ships as a separate dynamic framework, <code>CineManiac.app/Frameworks/libsmb2.framework</code>, loaded at run time. A modified build with the same public interface can replace it there; the app must then be re-signed to install it on a device, as for any iOS app.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this source: email <a href="mailto:andy.kim.jkhoodles@gmail.com?subject=CineManiac%20libsmb2%20source">andy.kim.jkhoodles@gmail.com</a>.</p>
+
+  <footer>
+    <a href="/cinemaniac/">Support</a>
+    <a href="/cinemaniac/privacy/">Privacy Policy</a>
+    <a href="/cinemaniac/ffmpeg/">FFmpeg Source</a>
+    <span>© 2026 JKHoodles Pty Ltd</span>
+  </footer>
+</main>
+</body>
+</html>
